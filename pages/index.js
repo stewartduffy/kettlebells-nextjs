@@ -16,7 +16,7 @@ const useStyles = makeStyles({
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function Index() {
-  const { data, error } = useSWR("/api/users", fetcher);
+  const { data, error } = useSWR("/api/kettlebells", fetcher);
   const classes = useStyles();
 
   console.log("data: ", data);
@@ -35,8 +35,8 @@ export default function Index() {
         </TableHead>
 
         <TableBody>
-          {data.map((row) => (
-            <TableRow key={row.name}>
+          {data.map((row, i) => (
+            <TableRow key={`TableRow-${i}`}>
               <TableCell>
                 <Link href={row.url} target="_blank" rel="noopener">
                   {row.url}
