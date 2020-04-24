@@ -10,9 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
+  table: {},
 });
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
