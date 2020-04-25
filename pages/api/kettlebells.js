@@ -2,15 +2,18 @@ const axios = require("axios").default;
 const cheerio = require("cheerio");
 
 const sitesToCheck = [
-  "https://www.industrialathletic.com/4kg-cast-iron-kettlebell",
+  // "https://www.industrialathletic.com/4kg-cast-iron-kettlebell",
   "https://www.industrialathletic.com/12kg-cast-iron-kettlebell",
   "https://www.industrialathletic.com/16kg-cast-iron-kettlebell",
-  "http://solidstrengthequipment.co.nz/4kg-kettlebell",
+  // "http://solidstrengthequipment.co.nz/4kg-kettlebell",
   "http://solidstrengthequipment.co.nz/12kg-kettlebell",
   "http://solidstrengthequipment.co.nz/16kg-kettlebell",
   "https://www.seventhsin.co.nz/collections/kettlebells/products/12kg-seventh-sin-kettlebell",
   "https://www.seventhsin.co.nz/collections/kettlebells/products/16kg-seventh-sin-kettlebell",
-  "https://www.seventhsin.co.nz/collections/kettlebells/products/32kg-seventh-sin-kettlebell",
+  // "https://www.seventhsin.co.nz/collections/kettlebells/products/32kg-seventh-sin-kettlebell",
+  "https://www.elitefitness.co.nz/xtreme-elite-high-end-kettlebell?elitefitness-12KG=true",
+  "https://www.elitefitness.co.nz/xtreme-elite-high-end-kettlebell?elitefitness-16KG=true",
+  // "https://www.elitefitness.co.nz/xtreme-elite-high-end-kettlebell?elitefitness-24KG=true",
 ];
 
 const checkUrl = (url, search) => {
@@ -35,6 +38,33 @@ function getStatus(response, url) {
     case checkUrl(url, "seventhsin"):
       selectorValue = $("span.productlabel.soldout").text();
       return selectorValue === "Sold Out" ? "Out Of Stock" : "Available";
+    case checkUrl(url, "elitefitness-12KG"):
+      selectorValue = $(
+        '.product-item-name:contains("HIGH END  KETTLEBELL 12KG")'
+      )
+        .parent()
+        .next()
+        .next()
+        .text();
+      return selectorValue === " Out of stock" ? "Out Of Stock" : "Available";
+    case checkUrl(url, "elitefitness-16KG=true"):
+      selectorValue = $(
+        '.product-item-name:contains("HIGH END KETTLEBELL 16KG")'
+      )
+        .parent()
+        .next()
+        .next()
+        .text();
+      return selectorValue === " Out of stock" ? "Out Of Stock" : "Available";
+    case checkUrl(url, "elitefitness-24KG=true"):
+      selectorValue = $(
+        '.product-item-name:contains("HIGH END KETTLEBELL 24KG")'
+      )
+        .parent()
+        .next()
+        .next()
+        .text();
+      return selectorValue === " Out of stock" ? "Out Of Stock" : "Available";
   }
 }
 
