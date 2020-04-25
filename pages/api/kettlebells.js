@@ -8,7 +8,7 @@ const sitesToCheck = [
   "http://solidstrengthequipment.co.nz/4kg-kettlebell",
   "http://solidstrengthequipment.co.nz/12kg-kettlebell",
   "http://solidstrengthequipment.co.nz/16kg-kettlebell",
-
+  "https://www.seventhsin.co.nz/collections/kettlebells/products/12kg-seventh-sin-kettlebell",
   "https://www.seventhsin.co.nz/collections/kettlebells/products/16kg-seventh-sin-kettlebell",
   "https://www.seventhsin.co.nz/collections/kettlebells/products/32kg-seventh-sin-kettlebell",
 ];
