@@ -2,18 +2,21 @@ const axios = require("axios").default;
 const cheerio = require("cheerio");
 
 const sitesToCheck = [
-  // "https://www.industrialathletic.com/4kg-cast-iron-kettlebell",
+  /* Test products that are in stock */
+  "https://www.industrialathletic.com/4kg-cast-iron-kettlebell",
+  "http://solidstrengthequipment.co.nz/4kg-kettlebell",
+  "https://www.seventhsin.co.nz/collections/kettlebells/products/32kg-seventh-sin-kettlebell",
+  "https://www.elitefitness.co.nz/xtreme-elite-high-end-kettlebell?elitefitness-24KG=true",
+
+  /* Actual products I want to track */
   "https://www.industrialathletic.com/12kg-cast-iron-kettlebell",
   "https://www.industrialathletic.com/16kg-cast-iron-kettlebell",
-  // "http://solidstrengthequipment.co.nz/4kg-kettlebell",
   "http://solidstrengthequipment.co.nz/12kg-kettlebell",
   "http://solidstrengthequipment.co.nz/16kg-kettlebell",
   "https://www.seventhsin.co.nz/collections/kettlebells/products/12kg-seventh-sin-kettlebell",
   "https://www.seventhsin.co.nz/collections/kettlebells/products/16kg-seventh-sin-kettlebell",
-  // "https://www.seventhsin.co.nz/collections/kettlebells/products/32kg-seventh-sin-kettlebell",
   "https://www.elitefitness.co.nz/xtreme-elite-high-end-kettlebell?elitefitness-12KG=true",
   "https://www.elitefitness.co.nz/xtreme-elite-high-end-kettlebell?elitefitness-16KG=true",
-  // "https://www.elitefitness.co.nz/xtreme-elite-high-end-kettlebell?elitefitness-24KG=true",
 ];
 
 const checkUrl = (url, search) => {
