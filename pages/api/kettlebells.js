@@ -3,10 +3,10 @@ const cheerio = require("cheerio");
 
 const sitesToCheck = [
   /* Test products that are in stock */
-  "https://www.industrialathletic.com/4kg-cast-iron-kettlebell",
-  "http://solidstrengthequipment.co.nz/4kg-kettlebell",
-  "https://www.seventhsin.co.nz/collections/kettlebells/products/32kg-seventh-sin-kettlebell",
-  "https://www.elitefitness.co.nz/xtreme-elite-high-end-kettlebell?elitefitness-24KG=true",
+  // "https://www.industrialathletic.com/4kg-cast-iron-kettlebell",
+  // "http://solidstrengthequipment.co.nz/4kg-kettlebell",
+  // "https://www.seventhsin.co.nz/collections/kettlebells/products/32kg-seventh-sin-kettlebell",
+  // "https://www.elitefitness.co.nz/xtreme-elite-high-end-kettlebell?elitefitness-24KG=true",
 
   /* Actual products I want to track */
   "https://www.industrialathletic.com/12kg-cast-iron-kettlebell",
