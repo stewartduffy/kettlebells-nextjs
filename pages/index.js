@@ -42,7 +42,7 @@ export default function Index() {
                   {row.url}
                 </Link>
               </TableCell>
-              <TableCell>{row.buttonValue}</TableCell>
+              <TableCell>{row.status}</TableCell>
             </TableRow>
           ))}
         </TableBody>

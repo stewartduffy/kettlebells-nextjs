@@ -14,30 +14,30 @@ const checkUrl = (url, search) => {
   return url.search(search) > 0 ? true : false;
 };
 
-const getButtonSelector = (url) => {
+function getStatus(response, url) {
+  // load up cheerio
+  const $ = cheerio.load(response.data);
+
   switch (true) {
     case checkUrl(url, "industrialathletic"):
-      return "#form-action-addToCart";
+      return $("#form-action-addToCart").attr("value") === "Add to Cart"
+        ? "Available"
+        : "Out Of Stock";
     case checkUrl(url, "solidstrengthequipment"):
-      return '.product-add-to-cart input[type="submit"]';
+      return $('.product-add-to-cart input[type="submit"]').attr("value") ===
+        "Add To Cart"
+        ? "Available"
+        : "Out Of Stock";
   }
-};
+}
 
 const getHtml = async (url) => {
   const html = await axios.get(url);
   return {
     url,
-    buttonValue: getAddToCartButton(html, url),
+    status: getStatus(html, url),
   };
 };
-
-function getAddToCartButton(response, url) {
-  // load up cheerio
-  const $ = cheerio.load(response.data);
-  const buttonSelector = getButtonSelector(url);
-  const buttonValue = $(buttonSelector).attr("value");
-  return buttonValue;
-}
 
 export default async (req, res) => {
   try {
